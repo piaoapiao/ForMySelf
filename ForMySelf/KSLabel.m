@@ -279,63 +279,47 @@ static const NSTimeInterval kAnimationIntervalTransform = 0.2;
 //        if((![self outRightBeside]&& translation.x>=0)
 //           && (![self outLeftBeside]&& translation.x <=0)
 //           )
-        BOOL isXOut = YES;
-        BOOL isYOut = YES;
-//        if(![self outRightBeside] && ![self outLeftBeside])
+
+        if((![self outRightBeside] && ![self outLeftBeside]) &&(![self outTopBeside] && ![self outBottomBeside]))
         {
             [self outLeftBeside];
-//            x = (translation.x*cos(self.rotation)+translation.y*sin(self.rotation));
-//            y = translation.y*cos(self.rotation)-translation.x*sin(self.rotation);
             
             yx = translation.y*(sin(self.rotation));
             yy = translation.y*(cos(self.rotation));
-            
-            isXOut =  NO;
-        }
-
-//        else
-//        {
-//          //  x = y*tan(self.rotation);
-//
-//        }
-        
-//        if((![self outTopBeside]&& translation.y*cos(self.rotation)-translation.x*sin(self.rotation) <0)
-//           ||(![self outBottomBeside]&& translation.y*cos(self.rotation)-translation.x*sin(self.rotation) >0)
-//        if((![self outTopBeside]&& translation.y<=0)
-//           ||(![self outBottomBeside]&& translation.y>=0)
-     //   if(![self outTopBeside] && ![self outBottomBeside])
-        {
-            [self outBottomBeside];
-//            if(!isOutLeft)
-//            {
-//                x = x + translation.x*(cos(self.rotation));
-//                y = y - translation.x*(sin(self.rotation));
-//            }
             xx = translation.x*(cos(self.rotation));
             xy = -translation.x*(sin(self.rotation));
-            isYOut  = NO;
         }
-//        else
-//        {
-//
-//            x = translation.x*(cos(self.rotation));
-//            y = translation.x*(sin(self.rotation));
-//        }
-        
-//        if(!isXOut)
-//        {
-//            x = xx;
-//            y = xy;
-//        }
-//        
-//        if(!isYOut)
-//        {
-//            x = x + yx;
-//            y = y + yy;
-//        }
+        if((![self outRightBeside] && ![self outLeftBeside]) &&!(![self outTopBeside] && ![self outBottomBeside]))
+        {
+            [self outLeftBeside];
+            
+            xx = translation.x*(cos(self.rotation));
+            xy = -translation.x*(sin(self.rotation));
+        }
+        if(!(![self outRightBeside] && ![self outLeftBeside]) &&(![self outTopBeside] && ![self outBottomBeside]))
+        {
+            [self outLeftBeside];
+            
+            yx = translation.y*(sin(self.rotation));
+            yy = translation.y*(cos(self.rotation));
+//            xx = translation.x*(cos(self.rotation));
+//            xy = -translation.x*(sin(self.rotation));
+        }
+        if(!(![self outRightBeside] && ![self outLeftBeside]) &&!(![self outTopBeside] && ![self outBottomBeside]))
+        {
+            [self outLeftBeside];
+            
+//            yx = translation.y*(sin(self.rotation));
+//            yy = translation.y*(cos(self.rotation));
+//            xx = translation.x*(cos(self.rotation));
+//            xy = -translation.x*(sin(self.rotation));
+        }
+
+
         x = xx + yx;
         y = xy + yy;
         
+        NSLog(@"xx%f xy:%f yx:%f yy:%f",xx,xy,yx,yy);
         
         NSLog(@"x :%f y:%f w:%f h:%f",self.frame.origin.x,self.frame.origin.y,self.frame.size.width,self.frame.size.height);
 
@@ -362,7 +346,14 @@ static const NSTimeInterval kAnimationIntervalTransform = 0.2;
 -(BOOL)outLeftBeside
 {
     NSLog(@"outLeftBeside:%d",self.frame.origin.x + self.frame.size.width/2  + moveTranslation.x <= 0 ?YES:NO);
-    return self.frame.origin.x + self.frame.size.width/2 +moveTranslation.x <=0;
+    NSLog(@"self.frame.origin.x:%f",self.frame.origin.x);
+    NSLog(@"self.frame.size.width/2:%f",self.frame.size.width/2);
+    NSLog(@"moveTranslation.:%f",moveTranslation.y);
+     NSLog(@"offset.:%f",self.frame.origin.x + self.frame.size.width/2 +moveTranslation.x);
+  //   self.frame.origin.x + self.frame.size.width/2 +moveTranslation.x
+NSLog(@"outLeftBeside:%d",self.frame.origin.x + self.frame.size.width/2 +moveTranslation.x <=0?YES:NO);
+ //   return self.frame.origin.x + self.frame.size.width/2 +moveTranslation.x <=0;
+       return self.frame.origin.x + self.frame.size.width/2 +moveTranslation.x  <=0;
 }
 
 -(BOOL)outRightBeside
@@ -375,7 +366,6 @@ static const NSTimeInterval kAnimationIntervalTransform = 0.2;
 {
     NSLog(@"outTopBeside:%d",self.frame.origin.y + self.frame.size.height/2 +moveTranslation.y <0 ?YES:NO);
     return self.frame.origin.y + self.frame.size.height/2 +moveTranslation.y <=0;
-
 }
 
 -(BOOL)outBottomBeside
