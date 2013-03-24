@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class KSLabel;
 @interface ViewController : UIViewController
-
+{
+    KSLabel *_contentLabelView;
+}
 @end

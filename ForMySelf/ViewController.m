@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "KSLabel.h"
 
 @interface ViewController ()
 
@@ -22,6 +23,26 @@
     [btn setTitle:@"Click" forState:UIControlStateNormal];
     [btn addTarget:self action:@selector(click:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn];
+    
+    _contentLabelView = [[KSLabel alloc] init];
+      _contentLabelView.text = @"bug bug bug";
+    _contentLabelView.drawGradient = YES;
+    _contentLabelView.drawOutline = YES;
+    _contentLabelView.userInteractionEnabled = YES;
+   // _contentLabelView.backgroundColor = [UIColor clearColor];
+    _contentLabelView.font = [UIFont systemFontOfSize:22];
+    //  _contentLabelView.font = [UIFont systemFontOfSize:32];
+    _contentLabelView.numberOfLines = 0;
+    [_contentLabelView setTextAlignment:NSTextAlignmentCenter];
+    
+    [self.view addSubview:_contentLabelView];
+    
+    _contentLabelView.frame = CGRectMake(100,100,200,50);
+
+    
+    _contentLabelView.rotateEnabled = YES;
+    _contentLabelView.panEnabled = YES;
+    _contentLabelView.scaleEnabled = YES;
 }
 
 - (void)didReceiveMemoryWarning
@@ -33,6 +54,7 @@
 -(void)click:(id)sender
 {
     NSLog(@"click");
+    _contentLabelView.frame = CGRectMake(100, 100,200,50);
 }
 
 @end
