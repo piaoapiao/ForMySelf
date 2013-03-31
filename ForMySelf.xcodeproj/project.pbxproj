@@ -19,6 +19,7 @@
 		E70E31FC16F5D66700D9A2D8 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E70E31FB16F5D66700D9A2D8 /* Default-568h@2x.png */; };
 		E70E31FF16F5D66700D9A2D8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E70E31FE16F5D66700D9A2D8 /* ViewController.m */; };
 		E70E320216F5D66700D9A2D8 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E70E320016F5D66700D9A2D8 /* ViewController.xib */; };
+		E78F202E1707E05F0002EA06 /* Branch1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E78F202D1707E05F0002EA06 /* Branch1ViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,8 @@
 		E70E31FD16F5D66700D9A2D8 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		E70E31FE16F5D66700D9A2D8 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		E70E320116F5D66700D9A2D8 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+		E78F202C1707E05F0002EA06 /* Branch1ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Branch1ViewController.h; sourceTree = "<group>"; };
+		E78F202D1707E05F0002EA06 /* Branch1ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Branch1ViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +62,8 @@
 		E70E31D616F5D66700D9A2D8 = {
 			isa = PBXGroup;
 			children = (
+				E78F202C1707E05F0002EA06 /* Branch1ViewController.h */,
+				E78F202D1707E05F0002EA06 /* Branch1ViewController.m */,
 				E70E31EB16F5D66700D9A2D8 /* ForMySelf */,
 				E70E31E416F5D66700D9A2D8 /* Frameworks */,
 				E70E31E216F5D66700D9A2D8 /* Products */,
@@ -182,6 +187,7 @@
 				E70E31F616F5D66700D9A2D8 /* AppDelegate.m in Sources */,
 				E70E31FF16F5D66700D9A2D8 /* ViewController.m in Sources */,
 				0D16215416FAF17E00AA6B70 /* KSLabel.m in Sources */,
+				E78F202E1707E05F0002EA06 /* Branch1ViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
